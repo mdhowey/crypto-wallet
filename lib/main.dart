@@ -1,4 +1,6 @@
+import 'package:crypto_wallet/constants.dart';
 import 'package:crypto_wallet/price_screen.dart';
+import 'package:crypto_wallet/utilities/create_material_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -12,11 +14,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData.dark().copyWith(
-        primaryColor: Colors.greenAccent,
-        scaffoldBackgroundColor: Colors.blueGrey,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: createMaterialColor(kPrimary),
+        ).copyWith(
+          secondary: createMaterialColor(kSecondary),
+        ),
+        textTheme: const TextTheme(
+          bodyText2: TextStyle(
+            color: kSecondaryLight,
+          ),
+        ),
       ),
-      home: PriceScreen(),
+      home: const PriceScreen(),
     );
   }
 }

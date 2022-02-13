@@ -1,3 +1,4 @@
+import 'package:crypto_wallet/constants.dart';
 import 'package:flutter/material.dart';
 
 class PriceScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class _PriceScreenState extends State<PriceScreen> {
           Padding(
             padding: const EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0.0),
             child: Card(
-              color: Colors.lightGreenAccent,
+              color: kSecondaryDark,
               elevation: 4.0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
@@ -33,7 +34,7 @@ class _PriceScreenState extends State<PriceScreen> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20.0,
-                    color: Colors.white,
+                    color: kPrimaryDark,
                   ),
                 ),
               ),
@@ -43,7 +44,7 @@ class _PriceScreenState extends State<PriceScreen> {
             height: 150.0,
             alignment: Alignment.center,
             padding: const EdgeInsets.only(bottom: 30.0),
-            color: Colors.lightGreen,
+            color: kSecondary,
             child: null,
           ),
         ],
