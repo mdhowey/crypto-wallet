@@ -1,14 +1,32 @@
 import 'package:crypto_wallet/constants.dart';
 import 'package:flutter/material.dart';
 
-class PriceScreen extends StatefulWidget {
-  const PriceScreen({Key? key}) : super(key: key);
+import 'coin_data.dart';
 
+class PriceScreen extends StatefulWidget {
   @override
   _PriceScreenState createState() => _PriceScreenState();
 }
 
 class _PriceScreenState extends State<PriceScreen> {
+  String? selectedCurrency = 'USD';
+
+  /// Generates dropdown menu by iterating through currenciesList
+  ///
+  /// @returns The list of [DropdownMenuItems]
+  List<DropdownMenuItem<String>> getDropdownItems() {
+    List<DropdownMenuItem<String>> dropdownItems = [];
+
+    for (String currency in currenciesList) {
+      var dropdownItem = DropdownMenuItem(
+        child: Text(currency),
+        value: currency,
+      );
+      dropdownItems.add(dropdownItem);
+    }
+    return dropdownItems;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,8 +62,16 @@ class _PriceScreenState extends State<PriceScreen> {
             height: 150.0,
             alignment: Alignment.center,
             padding: const EdgeInsets.only(bottom: 30.0),
-            color: kSecondary,
-            child: null,
+            color: kSecondaryLight,
+            child: DropdownButton<String>(
+              value: selectedCurrency,
+              items: getDropdownItems(),
+              onChanged: (value) {
+                setState(() {
+                  selectedCurrency = value;
+                });
+              },
+            ),
           ),
         ],
       ),
