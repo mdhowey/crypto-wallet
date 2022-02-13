@@ -1,5 +1,4 @@
-# Keys and Secrets
-*.env
+.env
 
 # Miscellaneous
 *.class
